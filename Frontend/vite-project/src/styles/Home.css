@@ -1,0 +1,28 @@
+.home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #004aad, #2196f3);
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .connect-btn {
+    background-color: #ff9f00;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .connect-btn:hover {
+    background-color: #ffc14f;
+  }
+  

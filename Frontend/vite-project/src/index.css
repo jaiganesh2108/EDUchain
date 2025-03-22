@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f3f3f3;
+  background: linear-gradient(90deg, #004aad, #8000ff);
 }
 
 h1, h2 {

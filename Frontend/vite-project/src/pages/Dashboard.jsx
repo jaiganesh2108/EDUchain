@@ -1,41 +1,49 @@
 import React, { useState } from "react";
 
-// Importing child components
+// Components
 import ViewCredential from "./ViewCredential";
 import UploadCredential from "./UploadCredential";
+import Navbar from "../components/Navbar";
 
-// Importing custom CSS styles
+// Styles
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
-  // This state controls which tab is currently active: "view" or "upload"
+  // State to track which tab is active - "view" or "upload"
   const [tab, setTab] = useState("view");
 
   return (
-    <div className="dashboard-container">
-      <h1>🎓 EduChain Dashboard</h1>
+    <>
+      {/* Top Navigation Bar */}
+      <Navbar />
 
-      {/* Tab Buttons to switch between View and Upload */}
-      <div className="tab-buttons">
-        <button
-          className={tab === "view" ? "active" : ""}
-          onClick={() => setTab("view")}
-        >
-          View Credentials
-        </button>
+      {/* Main Dashboard Section */}
+      <div className="dashboard-container">
+        <h1>🎓 EduChain Dashboard</h1>
 
-        <button
-          className={tab === "upload" ? "active" : ""}
-          onClick={() => setTab("upload")}
-        >
-          Upload Credential
-        </button>
+        {/* Tab Switch Buttons */}
+        <div className="tab-buttons">
+          <button
+            className={tab === "view" ? "active" : ""}
+            onClick={() => setTab("view")}
+          >
+            View Credentials
+          </button>
+
+          <button
+            className={tab === "upload" ? "active" : ""}
+            onClick={() => setTab("upload")}
+          >
+            Upload Credential
+          </button>
+        </div>
+
+        {/* Render Component Based on Selected Tab */}
+        <div className="tab-content">
+          {tab === "view" ? <ViewCredential /> : <UploadCredential />}
+        </div>
       </div>
-
-      {/* Conditional rendering based on selected tab */}
-      <div className="tab-content">
-        {tab === "view" ? <ViewCredential /> : <UploadCredential />}
-      </div>
-    </div>
+    </>
   );
 }
+
