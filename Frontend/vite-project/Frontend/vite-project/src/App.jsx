@@ -8,7 +8,10 @@ function App() {
 
     <Router>
       <Routes>
+        {/* Landing page route */}
         <Route path="/" element={<Home />} />
+
+        {/* Dashboard page route (shown after connecting wallet) */}
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>

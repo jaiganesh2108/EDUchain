@@ -16,6 +16,7 @@ export default function UploadCredential() {
     formData.append("file", file);
 
     try {
+      // 🚀 Replace this with actual backend or IPFS upload logic
       alert("File uploaded Successfully(mock)");
     } catch (error) {
       alert("Upload failed");
