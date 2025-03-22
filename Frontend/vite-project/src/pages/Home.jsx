@@ -5,7 +5,6 @@ import "../styles/Home.css";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Function to connect MetaMask wallet
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
@@ -14,8 +13,8 @@ export default function Home() {
         });
 
         console.log("Wallet connected:", accounts[0]);
-        navigate("/dashboard"); // Navigate to Dashboard after successful connection
 
+        navigate("/dashboard");
       } catch (err) {
         console.error("Connection rejected by user:", err);
       }
@@ -26,12 +25,18 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1>🔐 Welcome to EduChain</h1>
-      <p>Please connect your wallet to access your credentials.</p>
+      {/* Top bar with the Connect Wallet button */}
+      <div className="top-bar">
+        <button className="connect-btn" onClick={connectWallet}>
+          Connect Wallet
+        </button>
+      </div>
 
-      <button className="connect-btn" onClick={connectWallet}>
-        Connect MetaMask
-      </button>
+      {/* Centered welcome message and instructions */}
+      <div className="center-content">
+        <h1>🔐 Welcome to EduChain</h1>
+        <p>Please connect your wallet to access your credentials.</p>
+      </div>
     </div>
   );
 }
