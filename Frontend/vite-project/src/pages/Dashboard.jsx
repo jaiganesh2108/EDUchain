@@ -1,49 +1,52 @@
 import React, { useState } from "react";
-
-// Components
 import ViewCredential from "./ViewCredential";
 import UploadCredential from "./UploadCredential";
 import Navbar from "../components/Navbar";
-
-// Styles
 import "../styles/Dashboard.css";
 
 export default function Dashboard() {
-  // State to track which tab is active - "view" or "upload"
-  const [tab, setTab] = useState("view");
+  const [activeTab, setActiveTab] = useState("view");
 
   return (
     <>
-      {/* Top Navigation Bar */}
+      
       <Navbar />
 
-      {/* Main Dashboard Section */}
+      
       <div className="dashboard-container">
-        <h1>🎓 EduChain Dashboard</h1>
+        <header className="dashboard-header">
+          <h1 className="dashboard-title">🎓 EduChain Dashboard</h1>
+          <p className="dashboard-subtitle">
+            Manage and secure your academic credentials with ease.
+          </p>
+        </header>
 
-        {/* Tab Switch Buttons */}
         <div className="tab-buttons">
           <button
-            className={tab === "view" ? "active" : ""}
-            onClick={() => setTab("view")}
+            className={`tab-button ${activeTab === "view" ? "active" : ""}`}
+            onClick={() => setActiveTab("view")}
           >
+            <span className="icon">
+              <i className="fas fa-eye" aria-hidden="true"></i>
+            </span>
             View Credentials
           </button>
 
           <button
-            className={tab === "upload" ? "active" : ""}
-            onClick={() => setTab("upload")}
+            className={`tab-button ${activeTab === "upload" ? "active" : ""}`}
+            onClick={() => setActiveTab("upload")}
           >
+            <span className="icon">
+              <i className="fas fa-upload" aria-hidden="true"></i>
+            </span>
             Upload Credential
           </button>
         </div>
-
-        {/* Render Component Based on Selected Tab */}
-        <div className="tab-content">
-          {tab === "view" ? <ViewCredential /> : <UploadCredential />}
+        
+        <div className="tab-content fade-in">
+          {activeTab === "view" ? <ViewCredential /> : <UploadCredential />}
         </div>
       </div>
     </>
   );
 }
-

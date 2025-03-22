@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(90deg, #004aad, #8000ff);
+    background-color: #009cad;
     color: white;
     padding: 15px 30px;
     display: flex;
@@ -10,7 +10,6 @@
   .navbar-logo {
     font-size: 22px;
     font-weight: bold;
-    color: white;
   }
   
   .navbar-links {
